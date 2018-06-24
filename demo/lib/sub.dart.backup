@@ -1,0 +1,43 @@
+import 'package:flutter/material.dart';
+
+class SubPage extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return new SubPageState();
+  }
+}
+
+class SubPageState extends State<SubPage> {
+  Widget build(BuildContext context) {
+    return  new Scaffold(
+      appBar: new AppBar(
+        title: new Text('子页面'),
+        centerTitle: true,
+      ),
+      body: new Center(
+        child: new Container(
+          child: new FlatButton(onPressed: showMsg, child: new Text('点击显示消息'),color: Colors.deepOrange),
+        ),
+      )
+    );
+  }
+
+  void showMsg() {
+    showDialog(
+      context: context,
+      child: new AlertDialog(
+        title: new Text('提示'),
+        content: new Text('打扫房间拉萨的飞机喀什地方款式大方慷慨'),
+        actions: <Widget>[
+          new FlatButton(
+            onPressed: () {
+              Navigator.pop(context, 'OK');
+            },
+            child: const Text('OK'),
+          )
+        ],
+      ),
+    );
+  }
+}
